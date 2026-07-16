@@ -535,6 +535,11 @@ test.describe('Installer flows', () => {
     const successStamp = await page.evaluate(() => localStorage.getItem('stremio_install_banner_last_success_at'));
     expect(successStamp).toBeTruthy();
 
+    const args = await page.evaluate(() => window.__installArgs);
+    expect(args.icon1).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon2).toBe(args.icon1);
+    expect(args.icon3).toBe(args.icon1);
+
     await context.close();
   });
 
@@ -554,7 +559,7 @@ test.describe('Installer flows', () => {
     await context.close();
   });
 
-  test('method 1 installer uses locally served icon assets', async ({ page }) => {
+  test('method 1 installer uses a durable public launcher-icon URL', async ({ page }) => {
     await page.addInitScript(() => {
       window.__installerArgs = null;
       window.Hisense_AddInsecureDomain = () => 0;
@@ -570,9 +575,9 @@ test.describe('Installer flows', () => {
 
     const args = await page.evaluate(() => window.__installerArgs);
     expect(args).toBeTruthy();
-    expect(args.icon1).toBe('http://localhost:8080/shared/icon.png');
-    expect(args.icon2).toBe('http://localhost:8080/shared/icon.png');
-    expect(args.icon3).toBe('http://localhost:8080/shared/icon.png');
+    expect(args.icon1).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon2).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon3).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
     expect(args.appUrl).toContain('https://noobygains.github.io/stremio-vidaa-tv/');
   });
 

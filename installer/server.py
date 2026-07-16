@@ -325,10 +325,9 @@ def dns_server(local_ip):
 # ---------------------------------------------------------------------------
 
 class InstallerHandler(http.server.SimpleHTTPRequestHandler):
-    """Serve the installer UI plus a small set of shared assets from the repo root."""
+    """Serve the temporary installer UI and its presentation assets."""
 
     SHARED_FILES = {
-        "icon.png": os.path.join(REPO_ROOT, "icon.png"),
         "logo.png": os.path.join(REPO_ROOT, "logo.png"),
         "PlusJakartaSans.ttf": os.path.join(REPO_ROOT, "PlusJakartaSans.ttf"),
     }

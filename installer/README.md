@@ -39,7 +39,7 @@ Step 5: Revert DNS to automatic and restart TV
 
 1. **Selective DNS spoof** -- The server resolves `vidaahub.com` to your PC and forwards other domains normally, so the TV can still reach external hosts like GitHub Pages.
 2. **HTTPS server** -- Serves the installer page with a self-signed certificate. The TV browser will show a certificate warning; accept it to proceed.
-3. **Install** -- The installer page calls `Hisense_installApp()` (only available on the `vidaahub.com` domain) to register Stremio as a web app on the TV. The installer UI and icon are served locally to avoid remote asset failures during this step.
+3. **Install** -- The installer page calls `Hisense_installApp()` (only available on the `vidaahub.com` domain) to register Stremio as a web app on the TV. The page itself is served locally, while the launcher icon is deliberately passed as the permanent GitHub Pages HTTPS URL. VIDAA can retrieve that URL after the temporary DNS override has been removed.
 4. **Revert** -- After installation, set your TV DNS back to automatic and restart. Stremio will appear in your app list.
 
 ## Troubleshooting
