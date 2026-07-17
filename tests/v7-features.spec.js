@@ -536,7 +536,7 @@ test.describe('Installer flows', () => {
     expect(successStamp).toBeTruthy();
 
     const args = await page.evaluate(() => window.__installArgs);
-    expect(args.icon1).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon1).toBe('https://notsameleo.github.io/stremio-vidaa-tv/icon.png?v=2');
     expect(args.icon2).toBe(args.icon1);
     expect(args.icon3).toBe(args.icon1);
 
@@ -575,10 +575,10 @@ test.describe('Installer flows', () => {
 
     const args = await page.evaluate(() => window.__installerArgs);
     expect(args).toBeTruthy();
-    expect(args.icon1).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
-    expect(args.icon2).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
-    expect(args.icon3).toBe('https://noobygains.github.io/stremio-vidaa-tv/icon.png?v=2');
-    expect(args.appUrl).toContain('https://noobygains.github.io/stremio-vidaa-tv/');
+    expect(args.icon1).toBe('https://notsameleo.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon2).toBe('https://notsameleo.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.icon3).toBe('https://notsameleo.github.io/stremio-vidaa-tv/icon.png?v=2');
+    expect(args.appUrl).toContain('https://notsameleo.github.io/stremio-vidaa-tv/');
   });
 
   test('installer diagnostics include domain registration and install results', async ({ page }) => {
